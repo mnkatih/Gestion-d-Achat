@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+{{include('pages/inc/header.html.twig')}}
+{% if is_granted('IS_AUTHENTICATED_FULLY')%}
+
+
+<button onclick="location.href='{{absolute_url(asset(''))}}app_dev.php/fournisseur'" type="button" class="btn btn-outline-dark">Fournisseurs</button>
+<button onclick="location.href='{{absolute_url(asset(''))}}app_dev.php/login_success'" type="button" class="btn btn-outline-dark">la page d'accueil</button>
+
+<div class="list-group" >
+  <a href ="#" class="list-group-item list-group-item-active">Le Fournisseur</a>
+  <a href="#" class="list-group-item list-group-item-action" >Entreprise:{{fournisseurs.entreprise}}</a>
+   
+   <a href="#" class="list-group-item list-group-item-action" > mail:{{ fournisseurs.mail}}</a>
+   <a href="#" class="list-group-item list-group-item-action" >numero de telephone:{{ fournisseurs.telephone}} </a>
+   <a href="#" class="list-group-item list-group-item-action" > numero de fax:{{ fournisseurs.fAX}}</a>
+  
+  
+</div>
+  <a href="{{logout_path()}}" class="btn btn-danger">se deconnecter</a>
+  {% endif %}
+{{include('pages/inc/footer.html.twig')}}

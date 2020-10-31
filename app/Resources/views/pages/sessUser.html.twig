@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html lang="en">
+{{include('pages/inc/header.html.twig')}}
+{% if is_granted('IS_AUTHENTICATED_FULLY')%}
+<button onclick="location.href='{{absolute_url(asset(''))}}app_dev.php/post'" type="button" class="btn btn-dark">Achats</button>
+ <button onclick="location.href='{{absolute_url(asset(''))}}app_dev.php/fournisseur'" type="button" class="btn btn-dark">Fournisseurs</button>
+ <a href="{{logout_path()}}" class="btn btn-danger">se deconnecter</a>
+  {% endif %}
+{{include('pages/inc/footer.html.twig')}}

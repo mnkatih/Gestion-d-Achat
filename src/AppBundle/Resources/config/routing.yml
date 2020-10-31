@@ -1,0 +1,7 @@
+app_frs:
+    resource: "@AppBundle/Resources/config/routing/fournisseur.yml"
+    prefix:   /frs
+Achat:
+      path: /addFournisseur/{entreprise}
+      defaults: { _controller:AppBundle:Achat:home}
+

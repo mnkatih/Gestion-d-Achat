@@ -1,0 +1,24 @@
+frs_index:
+    path:     /
+    defaults: { _controller: "AppBundle:fournisseur:index" }
+    methods:  GET
+
+frs_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:fournisseur:show" }
+    methods:  GET
+
+frs_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:fournisseur:new" }
+    methods:  [GET, POST]
+
+frs_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:fournisseur:edit" }
+    methods:  [GET, POST]
+
+frs_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:fournisseur:delete" }
+    methods:  DELETE

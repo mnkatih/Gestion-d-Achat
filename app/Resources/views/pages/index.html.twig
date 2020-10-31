@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+{{include('pages/inc/header.html.twig')}}
+{% if is_granted('IS_AUTHENTICATED_FULLY')%}
+ <button onclick="location.href='{{absolute_url(asset(''))}}app_dev.php/fournisseur'" type="button" class="btn btn-dark">Afficher les  fournisseur</button>
+  <button onclick="location.href='{{absolute_url(asset(''))}}app_dev.php/createFournisseur'" type="button" class="btn btn-dark">Ajouter un fournisseur</button>
+  <button onclick="location.href='{{absolute_url(asset(''))}}app_dev.php/login_success'" type="button" class="btn btn-dark">la page d'accueil</button>
+  <a href="{{logout_path()}}" class="btn btn-danger">se deconnecter</a>
+ 
+    
+<h3>Afficher les achats</h3>
+<button onclick="location.href='{{absolute_url(asset(''))}}app_dev.php/create'" type="button" class="btn btn-dark">Ajouter un achat</button>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Déscription d'achat</th>
+        <th>produit</th>
+        <th>quantité</th>
+        <th>Prix unitaire</th>
+        <th>fournisseur</th>
+        <th>date d'achat</th>
+      </tr>
+    </thead>
+     <!--[if expression]>
+     <![endif]--> 
+ 
+     	<tbody>
+     	{% for achat in achats %}
+      <tr>
+        <td>{{achat.description}}</td>
+        <td>{{ achat.produit}}</td>
+        <td>{{ achat.quantite}}</td>
+        <td>{{ achat.pU}}</td>
+      
+        <td>{{ achat.fournisseur.entreprise}}</td>
+       
+        <td>{{ achat.data|date("m/d/Y")}}</td>
+        
+    <td>
+    	<button onclick="location.href='{{absolute_url(asset(''))}}app_dev.php/view/{{achat.id}}'" type="button" class="btn btn-outline-dark">Afficher</button>
+    	<!--[if expression]>
+   <button href ="http://localhost/symfonyEMBI/web/app_dev.php/view/{{achat.id}}" type="button" class="btn btn-default"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button> <![endif]-->
+ </td>
+    
+       <td> <button onclick="location.href='{{absolute_url(asset(''))}}app_dev.php/edit/{{achat.id}}'" type="button" class="btn btn-default"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></td>
+
+        <td> <button onclick="location.href='{{absolute_url(asset(''))}}app_dev.php/delete/{{achat.id}}'" type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></td>
+
+      </tr>      
+      {% else %}
+      <tr>
+      	<td>Aucun resultat à afficher </td>
+       </tr>
+      {% endfor %}
+     
+    </tbody>
+     
+
+  </table>
+
+  {% endif %}
+{{include('pages/inc/footer.html.twig')}}
+
+
+   

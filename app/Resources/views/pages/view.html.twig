@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+{{include('pages/inc/header.html.twig')}}
+{% if is_granted('IS_AUTHENTICATED_FULLY')%}
+
+<button onclick="location.href='{{absolute_url(asset(''))}}app_dev.php/login_success'" type="button" class="btn btn-outline-dark">la page d'accueil</button>
+
+<div class="list-group" >
+  <a href ="#" class="list-group-item list-group-item-active">L'Achat</a>
+  <a href="#" class="list-group-item list-group-item-action" >La description de l'achat :{{achats.description}}</a>
+   
+   <a href="#" class="list-group-item list-group-item-action" > Le nom de produit :{{ achats.produit}}</a>
+   <a href="#" class="list-group-item list-group-item-action" >La quantitée achetée :{{ achats.quantite}} </a>
+   <a href="#" class="list-group-item list-group-item-action" >Le prix unitaire : {{ achats.pU}}</a>
+   <a href="#" class="list-group-item list-group-item-action"> La date d'achat :{{ achats.data|date("m/d/Y")}} </a>
+  
+</div>
+  <a href="{{logout_path()}}" class="btn btn-danger">se deconnecter</a>
+  {% endif %}
+{{include('pages/inc/footer.html.twig')}}

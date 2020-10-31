@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Frs list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Entreprise</th>
+                <th>Mail</th>
+                <th>Telephone</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fr in frs %}
+            <tr>
+                <td><a href="{{ path('frs_show', { 'id': fr.id }) }}">{{ fr.id }}</a></td>
+                <td>{{ fr.entreprise }}</td>
+                <td>{{ fr.mail }}</td>
+                <td>{{ fr.telephone }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('frs_show', { 'id': fr.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('frs_edit', { 'id': fr.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('frs_new') }}">Create a new fr</a>
+        </li>
+    </ul>
+{% endblock %}

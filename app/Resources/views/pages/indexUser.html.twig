@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+{{include('pages/inc/header.html.twig')}}
+{% if is_granted('IS_AUTHENTICATED_FULLY')%}
+
+<h3>Afficher les achats</h3>
+<button onclick="location.href='{{absolute_url(asset(''))}}app_dev.php/createFournisseur'" type="button" class="btn btn-dark">Ajouter un fournisseur</button>
+<button onclick="location.href='{{absolute_url(asset(''))}}app_dev.php/login_success'" type="button" class="btn btn-outline-dark">la page d'accueil</button>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>username</th>
+        <th>mail</th>
+        
+      </tr>
+    </thead>
+     <!--[if expression]>
+     <![endif]--> 
+ 
+     	<tbody>
+     	{% for user in users %}
+      <tr>
+        <td>{{user.username}}</td>
+        <td>{{ user.email}}</td>
+
+
+         
+      
+   
+
+    
+      
+
+        <td> <button onclick="location.href='{{absolute_url(asset(''))}}app_dev.php/deleteUser/{{user.id}}'" type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></td>
+
+
+      </tr>      
+      {% else %}
+      <tr>
+      	<td>Aucun resultat à afficher </td>
+       </tr>
+      {% endfor %}
+     
+    </tbody>
+     
+
+  </table>
+  <a href="{{logout_path()}}" class="btn btn-danger">se deconnecter</a>
+  {% endif %}
+  {{include('pages/inc/footer.html.twig')}}

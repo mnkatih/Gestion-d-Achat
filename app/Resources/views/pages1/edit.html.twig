@@ -1,0 +1,11 @@
+
+<!DOCTYPE html>
+<html lang="en">
+{{include('pages/inc/header.html.twig')}}
+<h3>Modifier un achat</h3>
+<button onclick="location.href='{{absolute_url(asset(''))}}app_dev.php/post'" type="button" class="btn btn-outline-dark">la page d'accueil</button>
+{{form_start(form)}}
+{{form_widget(form)}}
+{{form_end(form)}}
+
+{{include('pages/inc/footer.html.twig')}}

@@ -1,0 +1,17 @@
+
+<!DOCTYPE html>
+<html lang="en">
+{{include('pages/inc/header.html.twig')}}
+<h3>Modifier un fournisseur</h3>
+{# add this at the beginning of your template #}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{# this alternative theme is also available #}
+{% form_theme form 'bootstrap_4_horizontal_layout.html.twig' %}
+
+{{form_start(form)}}
+{{form_widget(form)}}
+{{form_end(form)}}
+<button onclick="location.href='{{absolute_url(asset(''))}}app_dev.php/fournisseur'" type="button" class="btn btn-primary">Fournisseurs</button>
+<button onclick="location.href='{{absolute_url(asset(''))}}app_dev.php/login_success'" type="button" class="btn btn-primary">la page d'accueil</button>
+{{include('pages/inc/footer.html.twig')}}

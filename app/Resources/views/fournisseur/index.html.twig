@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Fournisseurs list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Entreprise</th>
+                <th>Mail</th>
+                <th>Telephone</th>
+                <th>Fax</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fournisseur in fournisseurs %}
+            <tr>
+                <td><a href="{{ path('frs_show', { 'id': fournisseur.id }) }}">{{ fournisseur.id }}</a></td>
+                <td>{{ fournisseur.entreprise }}</td>
+                <td>{{ fournisseur.mail }}</td>
+                <td>{{ fournisseur.telephone }}</td>
+                <td>{{ fournisseur.fAX }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('frs_show', { 'id': fournisseur.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('frs_edit', { 'id': fournisseur.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('frs_new') }}">Create a new fournisseur</a>
+        </li>
+    </ul>
+{% endblock %}

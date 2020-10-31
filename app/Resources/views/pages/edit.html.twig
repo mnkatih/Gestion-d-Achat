@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html lang="en">
+{{include('pages/inc/header.html.twig')}}
+{% if is_granted('IS_AUTHENTICATED_FULLY')%}
+
+{# add this at the beginning of your template #}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+<button onclick="location.href='{{absolute_url(asset(''))}}app_dev.php/login_success'" type="button" class="btn btn-dark">la page d'accueil</button>
+<a href="{{logout_path()}}" class="btn btn-danger">se deconnecter</a>
+
+{# this alternative theme is also available #}
+{% form_theme form 'bootstrap_4_horizontal_layout.html.twig' %}
+<h3>Modifier un achat</h3>
+
+{{form_start(form)}}
+{{form_widget(form)}}
+{{form_end(form)}}
+
+  {% endif %}
+{{include('pages/inc/footer.html.twig')}}

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+{{include('pages/inc/header.html.twig')}}
+{% if is_granted('IS_AUTHENTICATED_FULLY')%}
+<h3>Sessions d'administrateurs de systèmes</h3>
+<button onclick="location.href='{{absolute_url(asset(''))}}app_dev.php/post'" type="button" class="btn btn-dark">Achats</button>
+ <button onclick="location.href='{{absolute_url(asset(''))}}app_dev.php/fournisseur'" type="button" class="btn btn-dark">Fournisseurs</button>
+  <button onclick="location.href='{{absolute_url(asset(''))}}app_dev.php/register'" type="button" class="btn btn-dark">Ajouter un utilisateurs</button>
+  <button onclick="location.href='{{absolute_url(asset(''))}}app_dev.php/user'" type="button" class="btn btn-dark">Les utilisateurs</button>
+    <a href="{{logout_path()}}" class="btn btn-danger">se deconnecter</a>
+  {% endif %}
+{{include('pages/inc/footer.html.twig')}}
+

@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Fr</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ fr.id }}</td>
+            </tr>
+            <tr>
+                <th>Entreprise</th>
+                <td>{{ fr.entreprise }}</td>
+            </tr>
+            <tr>
+                <th>Mail</th>
+                <td>{{ fr.mail }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ fr.telephone }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('frs_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('frs_edit', { 'id': fr.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

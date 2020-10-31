@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Weelcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    </head>
+<div class="container">
+	{% if is_granted('IS_AUTHENTICATED_FULLY')%}
+	<a href="{{logout_path()}}" class="btn btn-danger">se deconnecter</a>
+    {% endif %}
+	
+</div>
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+ 
+</html>
